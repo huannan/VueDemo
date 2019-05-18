@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-bind</title>
+    <link rel="stylesheet" href="../css/demo.css"/>
+</head>
+<body>
+
+<div id="app">
+    <ul class="pagination">
+        <li v-for="n in pageSize">
+            <a href="javascript:void(0)" v-bind:class="currentPage === n+1? 'active' : ''">{{n+1}}</a>
+        </li>
+    </ul>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            pageSize: 10,
+            currentPage: 1
+        }
+    })
+</script>
+
+</body>
+</html>

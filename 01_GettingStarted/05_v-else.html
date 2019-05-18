@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-else</title>
+</head>
+<body>
+
+<div id="app">
+    <h1 v-if="b1">h1</h1>
+    <h1 v-else>h2</h1>
+    <h1 v-show="age >= 25">h3</h1>
+    <h1 v-else>h4</h1>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            b1: true,
+            b2: false,
+            age: 28,
+            name: 'huannan'
+        }
+    })
+</script>
+
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-on</title>
+    <link rel="stylesheet" href="../css/demo.css"/>
+</head>
+<body>
+
+<div id="app">
+
+    <!--绑定一个方法，让事件指向方法的引用-->
+    <ul class="pagination">
+        <li v-for="n in pageSize">
+            <a v-on:click="pageClick" v-bind:class="currentPage === n+1? 'active' : ''">{{n+1}}</a>
+        </li>
+    </ul>
+
+    <!--内联语句-->
+    <ul class="pagination">
+        <li v-for="n in pageSize">
+            <a v-on:click="pageClickInline(n+1)" v-bind:class="currentPage === n+1? 'active' : ''">{{n+1}}</a>
+        </li>
+    </ul>
+
+    <!--缩写-->
+    <ul class="pagination">
+        <li v-for="n in pageSize">
+            <a @click="pageClickInline(n+1)" :class="currentPage === n+1? 'active' : ''">{{n+1}}</a>
+        </li>
+    </ul>
+
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            pageSize: 10,
+            currentPage: 1
+        },
+        methods: {
+            pageClick: function () {
+                alert('');
+            },
+            pageClickInline: function (n) {
+                alert('当前的页码是：' + n);
+                this.currentPage = n;
+            },
+        }
+    })
+</script>
+
+</body>
+</html>
